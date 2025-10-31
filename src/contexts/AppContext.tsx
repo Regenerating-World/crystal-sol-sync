@@ -8,6 +8,13 @@ export interface CNFTItem {
   name: string;
   thumbnail: string;
   position?: { x: number; y: number };
+  metadata?: {
+    giftedBy?: string;
+    giftedMedia?: string[];
+    purchasedFrom?: string;
+    brand?: string;
+    story?: string;
+  };
 }
 
 export interface ItemTemplate {
@@ -47,9 +54,40 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [currentUser, setCurrentUser] = useState<UserRole>('franco');
   const [inventory, setInventory] = useState<CNFTItem[]>([
-    { id: '1', templateId: 't1', name: 'Plant Vase', thumbnail: '🪴', position: { x: 100, y: 100 } },
-    { id: '2', templateId: 't2', name: 'Art Frame', thumbnail: '🖼️' },
-    { id: '3', templateId: 't3', name: 'Rug', thumbnail: '🧶' },
+    { 
+      id: '1', 
+      templateId: 't1', 
+      name: 'Plant Vase', 
+      thumbnail: '🪴', 
+      position: { x: 100, y: 100 },
+      metadata: {
+        giftedBy: 'maria.sol',
+        giftedMedia: ['https://example.com/plant-gift.jpg'],
+        brand: 'EcoGreen',
+        story: 'A gift to remember the importance of caring for living things - digital plants die too if not watered!'
+      }
+    },
+    { 
+      id: '2', 
+      templateId: 't2', 
+      name: 'Art Frame', 
+      thumbnail: '🖼️',
+      metadata: {
+        purchasedFrom: 'Crystal Marketplace',
+        brand: 'Digital Arts Co.',
+        story: 'Memories portraits that can be shared and decorate more than one digital room.'
+      }
+    },
+    { 
+      id: '3', 
+      templateId: 't3', 
+      name: 'Rug', 
+      thumbnail: '🧶',
+      metadata: {
+        purchasedFrom: 'Luxury Home Store',
+        brand: 'Crystal Furnishings',
+      }
+    },
   ]);
   const [planetaryFund, setPlanetaryFund] = useState(1000.00);
   const [cityFund, setCityFund] = useState(500.00);
