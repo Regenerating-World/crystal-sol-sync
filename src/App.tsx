@@ -14,6 +14,7 @@ import LakeDetail from "./pages/LakeDetail";
 import Campaigns from "./pages/Campaigns";
 import Notifications from "./pages/Notifications";
 import Admin from "./pages/Admin";
+import Manifesto from "./pages/Manifesto";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
               <Route path="lakes" element={<Lakes />} />
               <Route path="lakes/:lakeId" element={<LakeDetail />} />
               <Route path="campaigns" element={<Campaigns />} />
+              <Route path="manifesto" element={<Manifesto />} />
               <Route path="notifications" element={<Notifications />} />
               <Route path="admin" element={<Admin />} />
             </Route>

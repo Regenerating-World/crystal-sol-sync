@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Home, Globe, ShoppingCart, Droplet, Rocket, Eye, Bell, Settings } from 'lucide-react';
+import { Home, Globe, ShoppingCart, Droplet, Rocket, Eye, Bell, Settings, BookOpen } from 'lucide-react';
 import { useApp } from '@/contexts/AppContext';
 import { Badge } from './ui/badge';
 import { Separator } from './ui/separator';
@@ -16,6 +16,7 @@ export const Sidebar = () => {
     { to: '/app/lakes', icon: Droplet, label: 'Lakes' },
     { to: '/app/campaigns', icon: Rocket, label: 'Campaigns' },
     { to: '/app/transparency', icon: Eye, label: 'Transparency' },
+    { to: '/app/manifesto', icon: BookOpen, label: 'Manifesto' },
   ];
 
   return (
